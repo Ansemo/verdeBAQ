@@ -1,0 +1,19 @@
+<div class="min-h-full animate-appearAndMoveUp">
+    <!-- <app-header></app-header> -->
+    <main>
+        <div style="height: 65vh; overflow: hidden;">
+            <div style="position: relative; top: 13vh;">
+                <img class="h-20 absolute  animate-fadeIn" style="left: 50%; top: 50%; transform: translate(-50%, 200%);"
+                    src="assets\img\VerdeBAQEslogan.svg" alt="Your Company">
+                <img class="absolute z-0 -left-12 animate-slideInFromLeft" src="assets\img\panelIzquierdo.svg" alt="Your Company">
+                <img class="absolute z-0 -right-12 animate-slideInFromRight" src="assets\img\panelIderecho.svg" alt="Your Company">
+            </div>
+        </div>
+        <div style="height: 25vh;" class="animate-fadeMessaje">
+            <app-mensaje></app-mensaje>
+        </div>
+        <div style="height: 6vh; display: flex; justify-content: center;">
+            <button class="w-full border-t-2" (click)="irATestCartas()">COMENZAR</button>
+        </div>
+    </main>
+</div>

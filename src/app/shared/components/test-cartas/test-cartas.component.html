@@ -1,0 +1,27 @@
+
+<div class="min-h-full animate-appearAndMoveUp">
+    <app-header></app-header>
+    <main>
+        <div style="height: 84.5vh; overflow: auto; text-align: -webkit-center; padding: 10px;">
+            <p class="mb-4">
+                ¡Elige <b>5 cartas</b> que capturan tu interés y comienza tu <b>aventura</b> emocionante!
+            </p>
+           
+            <div class="grid grid-cols-3 gap-2">
+                <ng-container *ngFor="let carta of cartas">
+                    <app-carta *ngIf="carta.nivel === 1" [carta]="carta" (click)="toggleCarta(carta.id)"></app-carta>
+                    <ng-container *ngIf="carta.activa" class="grid grid-cols-3 gap-2">
+                        <app-carta *ngFor="let cartaHija of carta.cartasHijas" 
+                        [ngClass]="{'card-enter-animation': cartaHija.activa, 'disabled-card': !cartaHija.activa && contarCartasActivas() >= maxCartasActivas}" 
+                        [carta]="cartaHija" 
+                        (click)="contarCartasActivas() < maxCartasActivas ? onCartaHijaClick(cartaHija.id) : null"></app-carta>
+              
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+        <div style="height: 6vh; display: flex; justify-content: center;">
+            <button class="w-full border-t-2">SIGUIENTE</button>
+        </div>
+    </main>
+</div>

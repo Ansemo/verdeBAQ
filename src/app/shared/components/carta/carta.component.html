@@ -1,0 +1,18 @@
+<div class="grid">
+  <div class="group relative flip-card" (click)="toggleCard()">
+    <div class="flip-card-inner aspect-h-1 aspect-w-1 w-full"
+      [ngClass]="{'flipped': showText && carta.activa && carta.state !== false }">
+      <div class="front backface-hidden rounded-md border-2">
+        <div *ngIf="carta.state == false" class=" absolute text-xs right-0 p-1 m-1 bg-green-200 text-green-700 rounded-full z-10">
+          próximamente
+        </div>
+        <img [src]="carta.imagen" alt="Imagen" class="h-32 w-32 rounded-md object-cover object-center "
+          [ngClass]="{'brightness-50': carta.state == false}">
+      </div>
+      <div class="back backface-hidden rotate-y-180">
+        <div
+          class="bg-white bg-opacity-50 border-2 border-yellow-400 rounded-md backdrop-blur flex items-center justify-center h-32 w-32">
+          <p class="text-xs text-center font-medium text-gray-900">{{ carta.descripcion }}</p>
+        </div>
+      </div>
+    </div>
